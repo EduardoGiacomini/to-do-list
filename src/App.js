@@ -7,7 +7,7 @@ import { Client as Styletron } from 'styletron-engine-atomic';
 import { Provider as StyletronProvider } from 'styletron-react';
 import { LightTheme, BaseProvider } from 'baseui';
 
-import ToDoList from './screens/ToDoList';
+import ToDoList from './components/ToDoList';
 
 const engine = new Styletron();
 
