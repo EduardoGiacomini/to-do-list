@@ -19,13 +19,18 @@ function ListItem(props) {
     <BaseUIListItem
       endEnhancer={() => (
         <React.Fragment>
-          <Button shape="round" size="compact" kind="secondary"><Check /></Button>
+          <Button onClick={() => props.onComplete(todo.id)} shape="round" size="compact" kind="secondary"><Check /></Button>
           <div style={{ width: '18px' }} />
           <Button shape="round" size="compact" kind="secondary"><Delete /></Button>
         </React.Fragment>
       )}
     >
-      <ListItemLabel description={`Criado em ${formattedDate}`}>{todo.value}</ListItemLabel>
+      {
+        todo.completed ?
+        <ListItemLabel description={`Criado em ${formattedDate}`}><strike>{todo.value}</strike></ListItemLabel>
+        :
+        <ListItemLabel description={`Criado em ${formattedDate}`}>{todo.value}</ListItemLabel>
+      }
     </BaseUIListItem>
   );
 }
