@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-import Form from './Form';
-import ListItem from './ListItem';
-import Modal from './Modal';
+import ToDoForm from '../form/ToDoForm';
+import ToDoListItem from '../lists/ToDoListItem';
+import RemoveToDoModal from '../modals/RemoveToDoModal';
 
 import { DisplaySmall } from 'baseui/typography';
 
-
-class Main extends Component {
+class ToDo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,15 +71,15 @@ class Main extends Component {
   render() {
     const { todos, openRemoveModal } = this.state;
     const todosToRender = todos.map(todo => 
-      <ListItem key={todo.id} todo={todo} onComplete={this.onComplete} onRemove={this.onRemove} />
+      <ToDoListItem key={todo.id} todo={todo} onComplete={this.onComplete} onRemove={this.onRemove} />
     );
 
     return (
       <div>
         <DisplaySmall className="margin-bottom-3">Lista de tarefas</DisplaySmall>
-        <Form onSubmit={this.onSubmit} />
+        <ToDoForm onSubmit={this.onSubmit} />
         <ul>{todosToRender}</ul>
-        <Modal
+        <RemoveToDoModal
           isOpen={openRemoveModal} changeOpenStatus={this.changeRemoveModalStatus}
           remove={this.removeToDoFromToDoList}
         />
@@ -89,4 +88,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default ToDo;

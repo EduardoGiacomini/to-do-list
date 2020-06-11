@@ -1,22 +1,18 @@
 import React from 'react';
 
-import moment from 'moment';
-
 import { Button } from 'baseui/button';
-import { ListItem as BaseUIListItem, ListItemLabel } from 'baseui/list';
+import { ListItem, ListItemLabel } from 'baseui/list';
 import { Check, Delete } from 'baseui/icon';
 
-function ListItem(props) {
-  const { todo, onComplete, onRemove } = props;
+import getFormattedDate from '../../utils/formatDate';
 
-  function getFormattedDate(date) {
-    return moment(date).format('DD/MM/YYYY, HH:mm')
-  }
+function ToDoListItem(props) {
+  const { todo, onComplete, onRemove } = props;
 
   const formattedDate = getFormattedDate(todo.createdAt);
 
   return (
-    <BaseUIListItem
+    <ListItem
       endEnhancer={() => (
         <React.Fragment>
           <Button onClick={() => onComplete(todo.id)} shape="round" size="compact" kind="secondary">
@@ -35,8 +31,8 @@ function ListItem(props) {
         :
         <ListItemLabel description={`Criado em ${formattedDate}`}>{todo.value}</ListItemLabel>
       }
-    </BaseUIListItem>
+    </ListItem>
   );
 }
 
-export default ListItem;
+export default ToDoListItem;

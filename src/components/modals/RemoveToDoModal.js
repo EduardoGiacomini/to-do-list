@@ -3,7 +3,7 @@ import React from 'react';
 import { Modal as BaseUIModal, ModalHeader, ModalBody, ModalFooter, ModalButton, SIZE, ROLE } from "baseui/modal";
 import { KIND as ButtonKind } from "baseui/button";
 
-function Modal(props) {
+function RemoveToDoModal(props) {
   const { isOpen, remove, changeOpenStatus } = props;
 
   function close() {
@@ -30,4 +30,4 @@ function Modal(props) {
   );
 }
 
-export default Modal;
+export default RemoveToDoModal;

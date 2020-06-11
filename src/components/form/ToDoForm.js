@@ -4,9 +4,9 @@ import { Paragraph1 } from 'baseui/typography';
 import { Input } from 'baseui/input';
 import { Button } from 'baseui/button';
 
-import ToDo from '../models/ToDo';
+import ToDo from '../../models/ToDo';
 
-class Form extends Component {
+class ToDoForm extends Component {
   constructor(props) {
     super(props);
     this.state = { value: '' };
@@ -46,4 +46,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default ToDoForm;
