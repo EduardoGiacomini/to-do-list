@@ -7,21 +7,25 @@ import { ListItem as BaseUIListItem, ListItemLabel } from 'baseui/list';
 import { Check, Delete } from 'baseui/icon';
 
 function ListItem(props) {
+  const { todo, onComplete, onRemove } = props;
 
   function getFormattedDate(date) {
     return moment(date).format('DD/MM/YYYY, HH:mm')
   }
 
-  const { todo } = props;
   const formattedDate = getFormattedDate(todo.createdAt);
 
   return (
     <BaseUIListItem
       endEnhancer={() => (
         <React.Fragment>
-          <Button onClick={() => props.onComplete(todo.id)} shape="round" size="compact" kind="secondary"><Check /></Button>
+          <Button onClick={() => onComplete(todo.id)} shape="round" size="compact" kind="secondary">
+            <Check />
+          </Button>
           <div style={{ width: '18px' }} />
-          <Button shape="round" size="compact" kind="secondary"><Delete /></Button>
+          <Button onClick={() => onRemove(todo.id)} shape="round" size="compact" kind="secondary">
+            <Delete />
+          </Button>
         </React.Fragment>
       )}
     >
